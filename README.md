@@ -27,3 +27,12 @@ Then you can start the server with:
 ```
 python3 main.py
 ```
+
+To access the update_basket_a webpage, navigate to:
+```
+127.0.0.1:5000/api/update_basket_a
+```
+To access the unique fruits webpage, navigate to:
+```
+127.0.0.1:5000/api/update_basket_a
+```
