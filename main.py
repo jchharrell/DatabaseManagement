@@ -29,7 +29,7 @@ def index_update():
     cursor, connection = util.connect_to_db(username,password,host,port,database)
     # execute SQL commands
     try:
-    	cursor.execute("INSERT INTO basket_a VALUES (6, 'Cherry')")
+    	cursor.execute("INSERT INTO basket_a VALUES (5, 'Cherry')")
     	status = ["Success!"]
     except Exception as e:
     	print("Error updating basket_a")
