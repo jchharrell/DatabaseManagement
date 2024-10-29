@@ -48,7 +48,7 @@ def index_unique():
     # this is your index page
     # connect to DB
     cursor, connection = util.connect_to_db(username,password,host,port,database)
-    # execute SQL commands
+    # execute SQL commands(fetch is best for SELECT, execute for other commands)
     record_a = util.run_and_fetch_sql(cursor, "SELECT DISTINCT fruit_a FROM basket_a")
     record_b = util.run_and_fetch_sql(cursor, "SELECT DISTINCT fruit_b FROM basket_b")
     if record_a == -1 or record_b == -1:
@@ -57,16 +57,17 @@ def index_unique():
     else:
         # this will return all column names of the select result table
         # ['customer_id','store_id','first_name','last_name','email','address_id','activebool','create_date','last_update','active']
-        col_names = ["Unique Fruits"]
+        col_names = ["Unique Fruits_A","Unique Fruits_B"]
         # only use the first five rows
         log_a = record_a[:5]
         log_b = record_b[:5]
         # log=[[1,2],[3,4]]
+        combined_result = list(zip(log_a, log_b))
     # disconnect from database
     util.disconnect_from_db(connection,cursor)
     # using render_template function, Flask will search
     # the file named index.html under templates folder
-    return render_template('index.html', sql_table = log_a + log_b, table_title=col_names)
+    return render_template('index.html', sql_table = combined_result, table_title=col_names)
 
 
 if __name__ == '__main__':
