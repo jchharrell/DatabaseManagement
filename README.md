@@ -1,5 +1,5 @@
-
-This program shows how we can connect PostgreSQL with flask and insert new rows in our database and select distinct items form our table.
+##Jared Harrell, Molly Thomas
+This project shows how we can connect PostgreSQL with flask and insert new rows in our database and select distinct items form our table.
 
 ## Quick Start
 ### Local Test Setup
