@@ -49,8 +49,8 @@ def index_unique():
     # connect to DB
     cursor, connection = util.connect_to_db(username,password,host,port,database)
     # execute SQL commands(fetch is best for SELECT, execute for other commands)
-    record_a = util.run_and_fetch_sql(cursor, "SELECT DISTINCT fruit_a FROM basket_a")
-    record_b = util.run_and_fetch_sql(cursor, "SELECT DISTINCT fruit_b FROM basket_b")
+    record_a = util.run_and_fetch_sql(cursor, "Select fruit_a FROM basket_a Left JOIN basket_b on fruit_a = fruit_b where b is null")
+    record_b = util.run_and_fetch_sql(cursor, "Select fruit_b FROM basket_a Right JOIN basket_b on fruit_a = fruit_b where a is null")
     if record_a == -1 or record_b == -1:
         # you can replace this part with a 404 page
         print('Something is wrong with the SQL command')
